@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import {ColorPicker} from "./components/ColorPicker";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [color, setColor] = useState('#ff0000');
+
+    const colorsList = [
+        {hex: '#ff0000', color: 'Red'},
+        {hex: '#ffa500', color: 'Orange'},
+        {hex: '#ffff00', color: 'Yellow'},
+        {hex: '#008000', color: 'Green'},
+        {hex: '#0000ff', color: 'Blue'},
+        {hex: '#ee82ee', color: 'Violet'},
+    ];
+
+    return (
+        <div className="App">
+            <ColorPicker {...{color, setColor, colorsList}}/>
+        </div>
+    );
 }
 
 export default App;

@@ -1,0 +1,186 @@
+.color-picker{
+  font-family: Verdana;
+  font-size: 14px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  .picker-view{
+    background: #fefefe;
+    border: 1px solid #cacaca;
+    border-radius: 3px;
+    width: 280px;
+    display: flex;
+    .picker-hex{
+      padding: 15px;
+      width: 195px;
+      border-right: 1px solid #cacaca;
+      color: #9c9c9c;
+    }
+    .picker-color{
+      width: 43px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid #cacaca;
+      cursor: pointer;
+      .picker-square{
+        width: 15px;
+        height: 15px;
+        border-radius: 3px;
+      }
+    }
+    .picker-btn{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 43px;
+      cursor: pointer;
+      &:hover{
+        svg{
+          fill: #757576;
+        }
+      }
+      &.open{
+        svg{
+          fill: #757576;
+          transform: rotate(0);
+        }
+      }
+      svg{
+        width: 15px;
+        transition: all .5s;
+        fill: #989899;
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .picker-drop-down{
+    position: absolute;
+    bottom: -15px;
+    right: 0;
+    transform: translateY(100%);
+    background: white;
+    width: 220px;
+    box-shadow: 0 10px 10px rgba(0,0,0,.2);
+    &:before{
+      content: '';
+      border: 10px solid transparent;
+      border-bottom: 10px solid #f5f5f5;
+      position: absolute;
+      top: 0;
+      right: 12px;
+      transform: translateY(-100%);
+      z-index: 1;
+    }
+    &:after{
+      content: '';
+      border: 9px solid transparent;
+      border-bottom: 9px solid #ffffff;
+      position: absolute;
+      top: 1px;
+      right: 13px;
+      transform: translateY(-100%);
+      z-index: 1;
+    }
+    &.forRgb{
+      &:before{
+        right: 54px;
+      }
+      &:after{
+        right: 55px;
+      }
+    }
+    .hex-item{
+      padding: 10px 20px;
+      text-transform: uppercase;
+      color: #999999;
+      font-size: 16px;
+      cursor: pointer;
+      border-bottom: 1px solid #cdcdcd;
+      justify-content: space-between;
+      display: flex;
+      &:hover{
+        background: #3377b6;
+        color: #e4e9f0;
+      }
+      .hex-square{
+        width: 15px;
+        height: 15px;
+        border-radius: 3px;
+      }
+    }
+    .rgba-item{
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      color: #9a9a9a;
+      &.r{
+        input[type=range]{
+          background: linear-gradient(to left, #ff0000, #545454 100%);
+        }
+      }
+      &.g{
+        input[type=range]{
+          background: linear-gradient(to left, #6cbe65, #545454 100%);
+        }
+      }
+      &.b{
+        input[type=range]{
+          background: linear-gradient(to left, #5fb1e0, #545454 100%);
+        }
+      }
+      input[type=range] {
+        -webkit-appearance: none;
+        border-radius: 2px;
+        width: 100%;
+        height: 2px;
+        margin: 0;
+        cursor: pointer;
+        margin-left: 15px;
+        transform: rotate(180deg);
+        &:focus{
+          outline: none;
+
+        }
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          width: 12px;
+          height: 12px;
+          background: #989898;
+          border-radius: 100%;
+          border: 1px solid white;
+        }
+      }
+    }
+    .rgba-action-btn{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      .rgba-btn{
+        cursor: pointer;
+        padding: 7px 15px;
+        margin-right: 10px;
+        &.cancel{
+          background: #d1d2d4;
+          border: 1px solid #babbbd;
+          color: #98999b;
+          &:hover{
+            background: 0 0;
+          }
+        }
+        &.ok{
+          background: #6aa55b;
+          color: #f0fde5;
+          border: 1px solid #6aa55b;
+          &:hover{
+            color: #6aa55b;
+            background: 0 0;
+          }
+        }
+      }
+    }
+  }
+}
